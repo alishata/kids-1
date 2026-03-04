@@ -4,6 +4,7 @@ import path from 'path';
 const DATA_DIR = path.join(process.cwd(), 'data');
 const CLASSES_FILE = path.join(DATA_DIR, 'classes.json');
 const KIDS_FILE = path.join(DATA_DIR, 'kids.json');
+const PAYMENTS_FILE = path.join(DATA_DIR, 'payments.json');
 
 // Ensure data directory exists
 if (!fs.existsSync(DATA_DIR)) {
@@ -24,6 +25,7 @@ initFile(CLASSES_FILE, [
 ]);
 
 initFile(KIDS_FILE, []);
+initFile(PAYMENTS_FILE, []);
 
 export const db = {
   getClasses: () => {
@@ -39,5 +41,12 @@ export const db = {
   },
   saveKids: (kids: any[]) => {
     fs.writeFileSync(KIDS_FILE, JSON.stringify(kids, null, 2));
+  },
+  getPayments: () => {
+    const data = fs.readFileSync(PAYMENTS_FILE, 'utf-8');
+    return JSON.parse(data);
+  },
+  savePayments: (payments: any[]) => {
+    fs.writeFileSync(PAYMENTS_FILE, JSON.stringify(payments, null, 2));
   }
 };
