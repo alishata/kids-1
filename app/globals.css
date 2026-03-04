@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --font-arabic: var(--font-arabic);
+  --font-inter: var(--font-inter);
+}
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-50;
+  }
+}
+
+.glass {
+  @apply bg-slate-900/50 backdrop-blur-md border border-slate-800/50;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:border-sky-500/50 hover:bg-slate-900/80;
+}
