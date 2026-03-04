@@ -12,6 +12,7 @@ import {
   XCircle,
   Plus
 } from 'lucide-react';
+import Link from 'next/link';
 
 const PaymentRow = ({ payment }: { payment: any }) => (
   <div className="glass p-4 rounded-2xl flex items-center justify-between group hover:border-sky-500/30 transition-all">
@@ -68,10 +69,18 @@ export default function PaymentsPage() {
             <h1 className="text-3xl font-bold">تتبع الرسوم والمدفوعات</h1>
             <p className="text-slate-400 mt-1">إدارة وتحصيل الرسوم الدراسية للأطفال</p>
           </div>
-          <button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-sky-500/20 transition-all active:scale-95">
-            <Download size={20} />
-            تصدير تقرير المدفوعات
-          </button>
+          <div className="flex gap-3">
+            <Link href="/finance/payments/add">
+              <button className="bg-sky-500 hover:bg-sky-600 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-sky-500/20 transition-all active:scale-95">
+                <Plus size={20} />
+                إضافة عملية مالية
+              </button>
+            </Link>
+            <button className="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all active:scale-95">
+              <Download size={20} />
+              تصدير تقرير
+            </button>
+          </div>
         </div>
 
         {/* Payment Stats */}

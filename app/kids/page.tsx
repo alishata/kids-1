@@ -46,7 +46,9 @@ const KidCard = ({ kid }: { kid: any }) => (
 
     <div className="flex gap-3 mt-2">
       <button className="flex-1 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-xs font-bold transition-all">الملف الشخصي</button>
-      <button className="flex-1 py-2.5 rounded-xl bg-sky-500/10 text-sky-500 hover:bg-sky-500 hover:text-white text-xs font-bold transition-all">تعديل</button>
+      <Link href={`/kids/edit/${kid.id}`} className="flex-1">
+        <button className="w-full py-2.5 rounded-xl bg-sky-500/10 text-sky-500 hover:bg-sky-500 hover:text-white text-xs font-bold transition-all">تعديل</button>
+      </Link>
     </div>
   </div>
 );
